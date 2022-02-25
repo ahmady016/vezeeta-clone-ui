@@ -13,7 +13,7 @@ import App from './App'
 
 // react toastify styles, global styles
 import 'react-toastify/dist/ReactToastify.css'
-import './index.css'
+import './index.scss'
 
 // react router history
 export const history = createBrowserHistory()
