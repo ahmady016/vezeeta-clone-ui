@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import HeroSlider from "../../__shared/components/HeroSlider";
+import Services from "../../__shared/components/Services";
 
 function PatientLayout() {
   return (
-    <h3>PatientLayout</h3>
-  )
+    <div className="PatientLayout">
+      <HeroSlider />
+      <Services />
+    </div>
+  );
 }
 
-export default PatientLayout
+export default PatientLayout;
