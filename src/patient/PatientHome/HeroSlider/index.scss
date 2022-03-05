@@ -1,8 +1,9 @@
-.Slider-Section {
+.slider-section {
   background: var(--transparent-bg);
-
+  width: 100%;
+  height: 100vh;
   /* #region Slide Helper */
-  .hide-Photo-Slider {
+  .hide-photo-slider {
     opacity: 0;
   }
   .back-index {

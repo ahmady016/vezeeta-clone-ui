@@ -1,14 +1,13 @@
-import React from "react";
-import HeroSlider from "../../__shared/components/HeroSlider";
-import Services from "../../__shared/components/Services";
+import React from 'react'
+
+import PatientHome from '../PatientHome'
 
 function PatientLayout() {
-  return (
-    <div className="PatientLayout">
-      <HeroSlider />
-      <Services />
-    </div>
-  );
+	return (
+		<>
+			<PatientHome />
+		</>
+	)
 }
 
-export default PatientLayout;
+export default PatientLayout
