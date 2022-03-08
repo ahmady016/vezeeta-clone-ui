@@ -1,9 +1,14 @@
 import React from 'react'
+import TopItems from '../TopItems'
+
+
 
 function PatientLayout() {
-  return (
-    <h3>PatientLayout</h3>
-  )
+	return (
+	
+			<TopItems/>
+		
+	)
 }
 
 export default PatientLayout
