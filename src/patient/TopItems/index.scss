@@ -2,4 +2,25 @@ h1 {
   
   padding-left: 100px;
   color: rgb(102, 102, 102);
+  padding-top: 30px;
+}
+img{
+  width: 80%;
+  border-radius: 10px;
+
+}
+img:hover,
+img:focus{
+  transform: scale(1.1);
+
+}
+.swiper-button-prev, .swiper-button-next{
+  color: rgb(179, 175, 175);
+  border: 1px solid gray;
+  border-radius: 7px;
+  
+}
+.swiper-button-next{
+  margin-left: 50px;
+  
 }

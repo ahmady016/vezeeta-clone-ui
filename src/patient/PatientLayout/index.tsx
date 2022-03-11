@@ -1,14 +1,14 @@
-import React from 'react'
-import TopItems from '../TopItems'
-
-
+import React from "react"
+import TopItems from "../TopItems"
+import TopICities from "../TopItems/cities"
 
 function PatientLayout() {
-	return (
-	
-			<TopItems/>
-		
-	)
+  return (
+    <>
+      <TopItems />
+      <TopICities />
+    </>
+  )
 }
 
 export default PatientLayout
