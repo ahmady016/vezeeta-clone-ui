@@ -1,0 +1,19 @@
+.slider-section {
+  background: var(--transparent-bg);
+  width: 100%;
+  height: 100vh;
+  /* #region Slide Helper */
+  .hide-photo-slider {
+    opacity: 0;
+  }
+  .back-index {
+    z-index: -1;
+  }
+  /* #endregion */
+}
+
+@media (min-width: 767.98px) {
+  .card-item {
+    height: 300px;
+  }
+}
