@@ -9,23 +9,26 @@ import TopItems from '../TopItems'
 import Services from './Services'
 
 const apiRequests = [
-	axios.get("https://vezeeta-clone-json-server.herokuapp.com/specialties"),
-	axios.get("https://vezeeta-clone-json-server.herokuapp.com/cities")
+	axios.get('https://vezeeta-clone-json-server.herokuapp.com/specialties'),
+	axios.get('https://vezeeta-clone-json-server.herokuapp.com/cities'),
 ]
 
-function index() {
+function PatientHome() {
 	const [specialties, setSpecialties] = React.useState<Specialty[]>([])
 	const [cities, setCities] = React.useState<City[]>([])
 
 	React.useEffect(() => {
-	  axios.all(apiRequests)
-		.then(([ specialtiesRes, citiesRes ]) => {
-			console.log("🚀 ~ specialtiesRes", specialtiesRes)
-			console.log("🚀 ~ citiesRes", citiesRes)
-			setCities(citiesRes.data.slice(0, 10))
-			setSpecialties(specialtiesRes.data.slice(0, 10))
-		})
-		.catch((err) =>{console.log(err)})
+		axios
+			.all(apiRequests)
+			.then(([specialtiesRes, citiesRes]) => {
+				console.log('🚀 ~ specialtiesRes', specialtiesRes)
+				console.log('🚀 ~ citiesRes', citiesRes)
+				setCities(citiesRes.data.slice(0, 10))
+				setSpecialties(specialtiesRes.data.slice(0, 10))
+			})
+			.catch((err) => {
+				console.log(err)
+			})
 	}, [])
 
 	return (
@@ -38,4 +41,4 @@ function index() {
 	)
 }
 
-export default index
+export default PatientHome
