@@ -4,9 +4,9 @@ import { Container } from 'react-bootstrap'
 
 import useSlider from '../../../__shared/hooks/useSlider'
 
-import img01 from '../../../__images/Slider/01.jpg'
-import img02 from '../../../__images/Slider/02.jpg'
-import img03 from '../../../__images/Slider/03.jpg'
+import img01 from '../../../__images/Slider/01.webp'
+import img02 from '../../../__images/Slider/02.webp'
+import img03 from '../../../__images/Slider/03.webp'
 const images = [img01, img02, img03]
 
 const Slider = ({ children }: any) => {

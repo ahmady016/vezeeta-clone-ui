@@ -4,7 +4,7 @@ import { Navbar, Nav, Button } from 'react-bootstrap'
 
 import NavbarLinks from './NavbarLinks'
 
-import logo from '../../__images/logo.webp'
+import logo from '../../../__images/logo.webp'
 
 const Topside = ({ links }: any) => {
 	return (

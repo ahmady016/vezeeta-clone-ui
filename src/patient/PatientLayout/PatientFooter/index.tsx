@@ -1,8 +1,10 @@
 import React from 'react'
+
+import { Row, Container } from 'react-bootstrap'
+
 import LinksColumn from './LinksColumn'
 
-import VezeetaLogo from '../../__images/logo.webp'
-import { Row, Container } from 'react-bootstrap'
+import VezeetaLogo from '../../../__images/logo.webp'
 
 const columns = [
 	{
