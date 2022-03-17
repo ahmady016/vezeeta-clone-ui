@@ -2,10 +2,10 @@ import React from 'react'
 
 import axios from 'axios'
 
-import { Specialty, City } from '../TopItems/types'
+import { Specialty, City } from './TopItems/types'
 
 import HeroSlider from './HeroSlider'
-import TopItems from '../TopItems'
+import TopItems from './TopItems'
 import Services from './Services'
 
 const apiRequests = [
