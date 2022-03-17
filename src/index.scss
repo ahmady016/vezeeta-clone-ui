@@ -6,6 +6,7 @@
 /* #region default react app styles */
 body {
   margin: 0;
+  padding: 0 !important;
   font-family: "Roboto", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -125,6 +126,10 @@ hr {
   align-items: center;
   justify-content: space-evenly;
 }
+.flex-aligned {
+  display: flex;
+  align-items: center;
+}
 .flex-b-5 {
   flex-basis: 5%;
 }
@@ -219,12 +224,15 @@ hr {
 .cu-text {
   cursor: text;
 }
+
 .border-radius-10 {
   border-radius: 10px;
 }
+
 .lh-4 {
   line-height: 0.4;
 }
+
 .top-50 {
   top: 50%;
 }
@@ -234,12 +242,25 @@ hr {
 .left-30 {
   left: 50px;
 }
+
 .text-standard {
   color: #666666;
 }
+.text-smaller {
+  font-size: .9rem;
+}
+
 .stop-input-focus:focus {
   box-shadow: none;
   border-color: #ced4da;
   z-index: 1;
+}
+
+.bg-primary-darker {
+  background-color: rgb(0, 112, 205) !important;
+}
+
+.underLine-hover:hover {
+  text-decoration: underline !important;
 }
 /* #endregion */
