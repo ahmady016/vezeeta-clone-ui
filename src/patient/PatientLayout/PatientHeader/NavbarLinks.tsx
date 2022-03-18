@@ -1,26 +1,25 @@
 import React from 'react'
-import { Nav } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
 
+const ICON_PROPS = {
+	color: '#fff',
+	fontSize: 25,
+}
 const NavbarLinks = ({ links, withIcon = false }: any) => {
-	const iconProps = {
-		color: '#fff',
-		fontSize: 25,
-	}
-
-	return links.map((Link: any, i: any) => (
-		<Nav.Link
+	return links.map((Link: any, i: number) => (
+		<NavLink
 			key={i}
-			className="text-light flex-aligned underLine-hover"
-			href={Link.href}
+			className="text-light flex-aligned underLine-hover text-decoration-none"
+			to={Link.path}
 		>
 			{withIcon ? (
 				<>
-					<Link.Icon {...iconProps} /> <span>{Link.label}</span>
+					<Link.Icon {...ICON_PROPS} /> <span>{Link.label}</span>
 				</>
 			) : (
 				Link.label
 			)}
-		</Nav.Link>
+		</NavLink>
 	))
 }
 

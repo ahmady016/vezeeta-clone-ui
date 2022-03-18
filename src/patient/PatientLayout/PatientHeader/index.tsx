@@ -13,9 +13,9 @@ import './index.scss'
 
 const navLinks = {
 	topSide: [
-		{ label: 'Login', href: '#' },
-		{ label: 'Vezeeta For Doctors', href: '#' },
-		{ label: 'Contact Us', href: '#' },
+		{ label: 'Login', path: '/login' },
+		{ label: 'Search For Doctors', path: '/search-for-doctors' },
+		{ label: 'Contact Us', path: '/contact-us' },
 	],
 	aside: [
 		{ label: 'Home Page', href: '#', Icon: AiOutlineHome },

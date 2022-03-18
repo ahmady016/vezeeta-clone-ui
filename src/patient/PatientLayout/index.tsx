@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
 import PatientHeader from './PatientHeader'
 import PatientFooter from './PatientFooter'
@@ -11,8 +11,9 @@ function PatientLayout() {
 		<>
 			<PatientHeader />
 			<Switch>
-				<Route path="/patient-search" component={PatientSearch} />
+				<Route path="/search-for-doctors" component={PatientSearch} />
 				<Route path="/" component={PatientHome} />
+				<Redirect to="/" />
 			</Switch>
 			<PatientFooter />
 		</>
