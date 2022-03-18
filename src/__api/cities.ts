@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { useQuery, useMutation } from 'react-query'
+
 import { queryClient } from '../index'
+
+import { City } from './types'
 
 const getAllCities = async () => {
 	const { data } = await axios.get('/cities')
@@ -12,18 +15,18 @@ export function useGetAllCitiesQuery() {
 	})
 }
 
-const getCityById = async (cityId) => {
+const getCityById = async (cityId: string) => {
 	const { data } = await axios.get(`/cities/${cityId}`)
 	return data
 }
-export function useGetCityByIdQuery(cityId) {
+export function useGetCityByIdQuery(cityId: string) {
 	return useQuery(['selected_city', cityId], () => getCityById(cityId), {
 		enabled: !!cityId,
 		refetchOnWindowFocus: true,
 	})
 }
 
-const createCity = async (newCity) => {
+const createCity = async (newCity: City) => {
 	const { data } = await axios.post('/cities', newCity)
 	return data
 }
@@ -33,7 +36,7 @@ export function useCreateCityMutation() {
 	})
 }
 
-const updateCity = async (updatedCity) => {
+const updateCity = async (updatedCity: City) => {
 	const { data } = await axios.put(`/cities/${updatedCity.id}`, updatedCity)
 	return data
 }
@@ -43,7 +46,7 @@ export function useUpdateCityMutation() {
 	})
 }
 
-const deleteCity = async (cityId) => {
+const deleteCity = async (cityId: string) => {
 	const { data } = await axios.delete(`/cities/${cityId}`)
 	return data
 }

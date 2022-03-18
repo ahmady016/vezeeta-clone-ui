@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { useQuery, useMutation } from 'react-query'
+
 import { queryClient } from '../index'
+
+import { Specialty } from './types'
 
 const getAllSpecialties = async () => {
 	const { data } = await axios.get('/specialties')
@@ -12,18 +15,18 @@ export function useGetAllSpecialtiesQuery() {
 	})
 }
 
-const getSpecialtyById = async (specialtyId) => {
+const getSpecialtyById = async (specialtyId: string) => {
 	const { data } = await axios.get(`/specialties/${specialtyId}`)
 	return data
 }
-export function useGetSpecialtyByIdQuery(specialtyId) {
+export function useGetSpecialtyByIdQuery(specialtyId: string) {
 	return useQuery(['selected_specialty', specialtyId], () => getSpecialtyById(specialtyId), {
 		enabled: !!specialtyId,
 		refetchOnWindowFocus: true,
 	})
 }
 
-const createSpecialty = async (newSpecialty) => {
+const createSpecialty = async (newSpecialty: Specialty) => {
 	const { data } = await axios.post('/specialties', newSpecialty)
 	return data
 }
@@ -33,7 +36,7 @@ export function useCreateSpecialtyMutation() {
 	})
 }
 
-const updateSpecialty = async (updatedSpecialty) => {
+const updateSpecialty = async (updatedSpecialty: Specialty) => {
 	const { data } = await axios.put(`/specialties/${updatedSpecialty.id}`, updatedSpecialty)
 	return data
 }
@@ -43,7 +46,7 @@ export function useUpdateSpecialtyMutation() {
 	})
 }
 
-const deleteSpecialty = async (specialtyId) => {
+const deleteSpecialty = async (specialtyId: string) => {
 	const { data } = await axios.delete(`/specialties/${specialtyId}`)
 	return data
 }
