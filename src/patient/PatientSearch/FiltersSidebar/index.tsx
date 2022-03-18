@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FiltersSidebar() {
+function FiltersSidebar({ setFilters } : any) {
   return (
     <div>FiltersSidebar</div>
   )
