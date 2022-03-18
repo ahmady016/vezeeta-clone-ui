@@ -11,8 +11,8 @@ function PatientSearch() {
 	const [filters, setFilters] = React.useState(null)
 
 	React.useEffect(() => {
-		console.log("🚀: PatientSearch => filters", filters)
 		console.log("🚀: PatientSearch => searchQuery", searchQuery)
+		console.log("🚀: PatientSearch => filters", filters)
 	}, [searchQuery, filters])
 
 	return (
