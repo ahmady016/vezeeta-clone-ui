@@ -12,7 +12,7 @@ import './index.scss'
 function TopItems({ title, items }: TopItemsProps) {
 	return (
 		<>
-			<h1>{title}</h1>
+			<h3>{title}</h3>
 			<Swiper
 				style={{ width: '85%', margin: 'auto' }}
 				modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -20,7 +20,6 @@ function TopItems({ title, items }: TopItemsProps) {
 				slidesPerView={4}
 				navigation
 				scrollbar={{ draggable: true }}
-				onSwiper={(swiper: any) => console.log(swiper)}
 				onSlideChange={() => console.log('slide change')}
 			>
 				{items.map((item) => (

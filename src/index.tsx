@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import axios from 'axios'
 import { Router } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 
@@ -20,8 +19,6 @@ import './index.scss'
 export const history = createBrowserHistory()
 // react query client
 export const queryClient = new QueryClient()
-// add the axios baseURL
-axios.defaults.baseURL = process.env.REACT_APP_API_URL
 
 render(
 	<React.StrictMode>

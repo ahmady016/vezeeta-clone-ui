@@ -1,6 +1,7 @@
 import React from 'react'
 
 import axios from 'axios'
+import api from '../../__api'
 
 import { Specialty, City } from './TopItems/types'
 
@@ -9,8 +10,8 @@ import TopItems from './TopItems'
 import Services from './Services'
 
 const apiRequests = [
-	axios.get('https://vezeeta-clone-json-server.herokuapp.com/specialties'),
-	axios.get('https://vezeeta-clone-json-server.herokuapp.com/cities'),
+	api.get('/specialties?_limit=10&_sort=name&_order=desc'),
+	api.get('/cities?_limit=10&_sort=name&_order=desc'),
 ]
 
 function PatientHome() {
@@ -21,10 +22,8 @@ function PatientHome() {
 		axios
 			.all(apiRequests)
 			.then(([specialtiesRes, citiesRes]) => {
-				console.log('🚀 ~ specialtiesRes', specialtiesRes)
-				console.log('🚀 ~ citiesRes', citiesRes)
-				setCities(citiesRes.data.slice(0, 10))
-				setSpecialties(specialtiesRes.data.slice(0, 10))
+				setCities(citiesRes.data)
+				setSpecialties(specialtiesRes.data)
 			})
 			.catch((err) => {
 				console.log(err)
