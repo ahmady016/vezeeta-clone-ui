@@ -1,40 +1,39 @@
 import React from 'react'
 
-import axios from 'axios'
-import api from '../../__api'
-
-import { Specialty, City } from './TopItems/types'
+import { useGetTopSpecialtiesAndTopCitiesQuery } from '../../__api/all'
 
 import HeroSlider from './HeroSlider'
 import TopItems from './TopItems'
 import Services from './Services'
 
-const apiRequests = [
-	api.get('/specialties?_limit=10&_sort=name&_order=desc'),
-	api.get('/cities?_limit=10&_sort=name&_order=desc'),
-]
+import { Alert, Spinner } from 'react-bootstrap'
+import styled from 'styled-components'
+
+const SpinnerDiv = styled.div`
+	margin: 4rem 0;
+	text-align: center;
+	& div {
+		width: 4rem;
+		height: 4rem;
+	}
+`
 
 function PatientHome() {
-	const [specialties, setSpecialties] = React.useState<Specialty[]>([])
-	const [cities, setCities] = React.useState<City[]>([])
-
-	React.useEffect(() => {
-		axios
-			.all(apiRequests)
-			.then(([specialtiesRes, citiesRes]) => {
-				setCities(citiesRes.data)
-				setSpecialties(specialtiesRes.data)
-			})
-			.catch((err) => {
-				console.log(err)
-			})
-	}, [])
-
+	const { isLoading, isError, error, data } = useGetTopSpecialtiesAndTopCitiesQuery()
 	return (
 		<>
 			<HeroSlider />
-			<TopItems title="Top Specialties" items={specialties} />
-			<TopItems title="Top Cities" items={cities} />
+			{(isLoading)
+				? <SpinnerDiv>
+						<Spinner animation="border" variant="primary" />
+					</SpinnerDiv>
+				: (isError)
+					? <Alert variant='danger'>{(error as any).message}</Alert>
+					: <>
+							<TopItems title="Top Specialties" items={data?.specialties} />
+							<TopItems title="Top Cities" items={data?.cities} />
+						</>
+			}
 			<Services />
 		</>
 	)
