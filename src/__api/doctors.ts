@@ -1,12 +1,13 @@
-import axios from 'axios'
 import { useQuery, useMutation } from 'react-query'
 
 import { queryClient } from '../index'
 
+import api from './index'
+
 import { Doctor } from './types'
 
 const getAllDoctors = async () => {
-	const { data } = await axios.get('/doctors')
+	const { data } = await api.get('/doctors')
 	return data
 }
 export function useGetAllDoctorsQuery() {
@@ -16,7 +17,7 @@ export function useGetAllDoctorsQuery() {
 }
 
 const getDoctorById = async (doctorId: string) => {
-	const { data } = await axios.get(`/doctors/${doctorId}`)
+	const { data } = await api.get(`/doctors/${doctorId}`)
 	return data
 }
 export function useGetDoctorByIdQuery(doctorId: string) {
@@ -31,7 +32,7 @@ export function useGetDoctorByIdQuery(doctorId: string) {
 }
 
 const createDoctor = async (newDoctor: Doctor) => {
-	const { data } = await axios.post('/doctors', newDoctor)
+	const { data } = await api.post('/doctors', newDoctor)
 	return data
 }
 export function useCreateDoctorMutation() {
@@ -41,7 +42,7 @@ export function useCreateDoctorMutation() {
 }
 
 const updateDoctor = async (updatedDoctor: Doctor) => {
-	const { data } = await axios.put(
+	const { data } = await api.put(
 		`/doctors/${updatedDoctor.id}`,
 		updatedDoctor
 	)
@@ -54,7 +55,7 @@ export function useUpdateDoctorMutation() {
 }
 
 const deleteDoctor = async (doctorId: string) => {
-	const { data } = await axios.delete(`/doctors/${doctorId}`)
+	const { data } = await api.delete(`/doctors/${doctorId}`)
 	return data
 }
 export function useDeleteCityMutation() {

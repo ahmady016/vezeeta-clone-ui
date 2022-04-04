@@ -1,12 +1,13 @@
-import axios from 'axios'
 import { useQuery, useMutation } from 'react-query'
 
 import { queryClient } from '../index'
 
+import api from './index'
+
 import { Specialty } from './types'
 
 const getAllSpecialties = async () => {
-	const { data } = await axios.get('/specialties')
+	const { data } = await api.get('/specialties')
 	return data
 }
 export function useGetAllSpecialtiesQuery() {
@@ -16,7 +17,7 @@ export function useGetAllSpecialtiesQuery() {
 }
 
 const getSpecialtyById = async (specialtyId: string) => {
-	const { data } = await axios.get(`/specialties/${specialtyId}`)
+	const { data } = await api.get(`/specialties/${specialtyId}`)
 	return data
 }
 export function useGetSpecialtyByIdQuery(specialtyId: string) {
@@ -27,7 +28,7 @@ export function useGetSpecialtyByIdQuery(specialtyId: string) {
 }
 
 const createSpecialty = async (newSpecialty: Specialty) => {
-	const { data } = await axios.post('/specialties', newSpecialty)
+	const { data } = await api.post('/specialties', newSpecialty)
 	return data
 }
 export function useCreateSpecialtyMutation() {
@@ -37,7 +38,7 @@ export function useCreateSpecialtyMutation() {
 }
 
 const updateSpecialty = async (updatedSpecialty: Specialty) => {
-	const { data } = await axios.put(`/specialties/${updatedSpecialty.id}`, updatedSpecialty)
+	const { data } = await api.put(`/specialties/${updatedSpecialty.id}`, updatedSpecialty)
 	return data
 }
 export function useUpdateSpecialtyMutation() {
@@ -47,7 +48,7 @@ export function useUpdateSpecialtyMutation() {
 }
 
 const deleteSpecialty = async (specialtyId: string) => {
-	const { data } = await axios.delete(`/specialties/${specialtyId}`)
+	const { data } = await api.delete(`/specialties/${specialtyId}`)
 	return data
 }
 export function useDeleteSpecialtyMutation() {

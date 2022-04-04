@@ -1,12 +1,13 @@
-import axios from 'axios'
 import { useQuery, useMutation } from 'react-query'
 
 import { queryClient } from '../index'
 
+import api from './index'
+
 import { Institution } from './types'
 
 const getAllInstitutions = async () => {
-	const { data } = await axios.get('/institutions')
+	const { data } = await api.get('/institutions')
 	return data
 }
 export function useGetAllInstitutionsQuery() {
@@ -16,7 +17,7 @@ export function useGetAllInstitutionsQuery() {
 }
 
 const getInstitutionById = async (institutionId: string) => {
-	const { data } = await axios.get(`/institutions/${institutionId}`)
+	const { data } = await api.get(`/institutions/${institutionId}`)
 	return data
 }
 export function useGetInstitutionByIdQuery(institutionId: string) {
@@ -31,7 +32,7 @@ export function useGetInstitutionByIdQuery(institutionId: string) {
 }
 
 const createInstitution = async (newInstitution: Institution) => {
-	const { data } = await axios.post('/institutions', newInstitution)
+	const { data } = await api.post('/institutions', newInstitution)
 	return data
 }
 export function useCreateInstitutionMutation() {
@@ -41,7 +42,7 @@ export function useCreateInstitutionMutation() {
 }
 
 const updateInstitution = async (updatedInstitution: Institution) => {
-	const { data } = await axios.put(
+	const { data } = await api.put(
 		`/institutions/${updatedInstitution.id}`,
 		updatedInstitution
 	)
@@ -54,7 +55,7 @@ export function useUpdateInstitutionMutation() {
 }
 
 const deleteInstitution = async (institutionId: string) => {
-	const { data } = await axios.delete(`/institutions/${institutionId}`)
+	const { data } = await api.delete(`/institutions/${institutionId}`)
 	return data
 }
 export function useDeleteCityMutation() {
