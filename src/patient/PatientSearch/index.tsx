@@ -20,7 +20,7 @@ function PatientSearch() {
 
 	return (
 		<Container fluid className="h-45 mb-2">
-			<h3>Patient Search</h3>
+			<h3>Book a Doctor</h3>
 			<Row>
 				<SearchBox setSearchQuery={setSearchQuery} />
 			</Row>
