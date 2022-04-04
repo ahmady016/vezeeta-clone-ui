@@ -21,14 +21,12 @@ export const history = createBrowserHistory()
 export const queryClient = new QueryClient()
 
 render(
-	<React.StrictMode>
+	<QueryClientProvider client={queryClient}>
 		<Router history={history}>
-			<QueryClientProvider client={queryClient}>
-				<App />
-				<ReactQueryDevtools />
-				<ToastContainer newestOnTop />
-			</QueryClientProvider>
+			<App />
 		</Router>
-	</React.StrictMode>,
+		<ReactQueryDevtools />
+		<ToastContainer newestOnTop />
+	</QueryClientProvider>,
 	document.getElementById('root')
 )
