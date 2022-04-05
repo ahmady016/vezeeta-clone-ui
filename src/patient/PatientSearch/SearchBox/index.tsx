@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useGetAllSpecialtiesAndAllCitiesQuery } from '../../../__api/all'
 import { City, Specialty } from '../../../__api/types'
-import { SearchQueryState } from '../types'
+import { SearchBoxProps, SearchQueryState } from '../types'
 
 import { Form, Row, Col, Button, Alert, Spinner } from 'react-bootstrap'
 import styled from 'styled-components'
@@ -16,7 +16,7 @@ const SpinnerCol = styled(Col)`
 	}
 `
 
-function SearchBox({ setSearchQuery }: any) {
+const SearchBox: React.FC<SearchBoxProps> = ({ setSearchQuery }) => {
 	const { isLoading, isError, error, data } = useGetAllSpecialtiesAndAllCitiesQuery()
 
   const [formState, setFormState] = React.useState<SearchQueryState>({

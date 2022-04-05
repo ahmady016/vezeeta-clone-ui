@@ -16,6 +16,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.pointer {
+  cursor: pointer !important;
+}
 /* #endregion */
 
 /* #region height classes */
@@ -235,6 +238,15 @@ code {
 .scroll::-webkit-scrollbar-thumb {
   background-color: rgba(0, 210, 203, 0.3);
   border-radius: 10px;
+}
+/* #endregion */
+
+/* #region modify bootstrap classes */
+div.form-check {
+  margin-bottom: 0.5rem;
+}
+input.form-check-input, label.form-check-label {
+  cursor: pointer;
 }
 /* #endregion */
 

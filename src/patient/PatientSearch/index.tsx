@@ -4,13 +4,13 @@ import SearchBox from './SearchBox'
 import FiltersSidebar from './FiltersSidebar'
 import SearchResult from './SearchResult'
 
-import { FiltersState, SearchQueryState } from './types'
+import { FiltersInitialState, FiltersState, SearchQueryInitialState, SearchQueryState } from './types'
 
 import { Container, Row, Col } from 'react-bootstrap'
 
 function PatientSearch() {
-	const [searchQuery, setSearchQuery] = React.useState<SearchQueryState | null>(null)
-	const [filters, setFilters] = React.useState<FiltersState | null>(null)
+	const [searchQuery, setSearchQuery] = React.useState<SearchQueryState>(SearchQueryInitialState)
+	const [filters, setFilters] = React.useState<FiltersState>(FiltersInitialState)
 	React.useEffect(() => {
 		if(searchQuery || filters) {
 			console.log("🚀: PatientSearch => searchQuery", searchQuery)
