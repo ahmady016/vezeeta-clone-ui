@@ -11,11 +11,12 @@ import { Container, Row, Col } from 'react-bootstrap'
 function PatientSearch() {
 	const [searchQuery, setSearchQuery] = React.useState<SearchQueryState>(SearchQueryInitialState)
 	const [filters, setFilters] = React.useState<FiltersState>(FiltersInitialState)
+
 	React.useEffect(() => {
-		if(searchQuery || filters) {
+		if(searchQuery !== SearchQueryInitialState)
 			console.log("🚀: PatientSearch => searchQuery", searchQuery)
+		if(filters !== FiltersInitialState)
 			console.log("🚀: PatientSearch => filters", filters)
-		}
 	}, [searchQuery, filters])
 
 	return (

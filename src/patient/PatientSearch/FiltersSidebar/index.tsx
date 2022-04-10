@@ -20,7 +20,6 @@ const FilterCheckboxList: React.FC<FilterCheckboxListProps> = ({ name, items, se
 
   React.useEffect(() => {
     if(checkedValues.length > 0) {
-      console.log(`🚀: ${name} checkedValues`, checkedValues)
       setFilters((filters) => ({
         ...filters,
         [name]: checkedValues

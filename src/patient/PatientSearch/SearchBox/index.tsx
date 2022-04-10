@@ -98,8 +98,9 @@ const SearchBox: React.FC<SearchBoxProps> = ({ setSearchQuery }) => {
             <Form.Label>Search</Form.Label>
             <Button
               type="submit"
-              variant="outline-primary"
+              variant="primary"
               className="w-100"
+              disabled={isLoading || isError || (!formState.specialty && !formState.city && !formState.name)}
             >
               Search
             </Button>
