@@ -24,29 +24,24 @@ function PatientSearch() {
 
 	const [query, setQuery] = React.useState<SearchQuery>({} as SearchQuery)
 	React.useEffect(() => {
-		if (
-			searchQuery !== SearchQueryInitialState ||
-			filters !== FiltersInitialState
-		) {
-			let query = {} as SearchQuery
+		let query = {} as SearchQuery
 
-			if(searchQuery.specialty)
-				query.specialty = searchQuery.specialty
-			if(searchQuery.city)
-				query.city = searchQuery.city
-			if (searchQuery.name)
-				query.name = searchQuery.name
-			if(filters.title.length > 0)
-				query.title = filters.title
-			if(filters.gender.length > 0)
-				query.gender = filters.gender
-			if(filters.availability.length > 0)
-				query.availability = filters.availability
-			if(filters.entity.length > 0)
-				query.entity = filters.entity
+		if(searchQuery.specialty)
+			query.specialty = searchQuery.specialty
+		if(searchQuery.city)
+			query.city = searchQuery.city
+		if (searchQuery.name)
+			query.name = searchQuery.name
+		if(filters.title.length > 0)
+			query.title = filters.title
+		if(filters.gender.length > 0)
+			query.gender = filters.gender
+		if(filters.availability.length > 0)
+			query.availability = filters.availability
+		if(filters.entity.length > 0)
+			query.entity = filters.entity
 
-			setQuery(query)
-		}
+		setQuery(query)
 	}, [searchQuery, filters])
 
 	const { mutate: search, isLoading, isError, error, data } = useSearchMutation()
