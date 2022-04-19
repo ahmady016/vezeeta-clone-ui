@@ -31,3 +31,20 @@ export type Specialty = {
 }
 
 export type City = Specialty
+
+export type SearchQuery = {
+	name: string
+	specialty: string
+	city: string
+	title: string[]
+	gender: string[]
+	availability: string[]
+	entity: string[]
+}
+
+export type SearchResult = {
+	doctors: Doctor[]
+	institutions: Institution[]
+	doctorsLength: number
+	institutionsLength: number
+}
