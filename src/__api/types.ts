@@ -1,8 +1,18 @@
 type Gender = 'male' | 'female'
 
+export type WorkTime = {
+	from: string
+	to: string
+}
+export type InstitutionBasicInfo = {
+	id: string
+	name: string
+	address: string
+}
 export type Doctor = {
 	id: string
 	name: string
+	title: string
 	gender: Gender
 	photoUrl: string
 	birthDate: string
@@ -12,6 +22,11 @@ export type Doctor = {
 	phone: string
 	email: string
 	password: string
+	visits: number
+	fees: number
+	workDays?: string[]
+	workTime?: WorkTime
+	institution?: InstitutionBasicInfo
 }
 
 export type Institution = {
@@ -22,6 +37,7 @@ export type Institution = {
 	type: string
 	city: string
 	imageUrl: string
+	visits: number
 }
 
 export type Specialty = {
