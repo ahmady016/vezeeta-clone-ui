@@ -64,3 +64,12 @@ export type SearchResult = {
 	doctorsLength: number
 	institutionsLength: number
 }
+
+export type Message = {
+	id: string
+	name: string
+	gender: Gender
+	mobile: string
+	email: string
+	comment: string
+}
